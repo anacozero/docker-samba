@@ -21,7 +21,7 @@ RUN apt-get update -y && \
         libnss-winbind \
         libpam-winbind \
 	acl \
-	attr \
+	attr
 	
         
 
