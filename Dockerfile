@@ -11,7 +11,7 @@ RUN apt-get update -y && \
 	apt-get install -y \
         nano \
         ntp \
-		samba \
+	samba \
         krb5-user \
         libpam-krb5 \
         winbind \
@@ -23,6 +23,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 	
 EXPOSE 445/tcp 139/tcp 137/udp 138/udp
 
-ENTRYPOINT ["smbd", "--foreground", "--log-stdout"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD []
