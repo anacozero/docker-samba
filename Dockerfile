@@ -34,6 +34,6 @@ RUN env --unset=DEBIAN_FRONTEND
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-ENTRYPOINT ["/start.sh""smbd", "--foreground", "--log-stdout"]
+ENTRYPOINT ["/start.sh"]
 
 CMD ["smbd", "--foreground", "--log-stdout"]
