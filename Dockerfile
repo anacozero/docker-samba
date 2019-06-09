@@ -8,15 +8,21 @@ ENV TZ 'America/Chicago'
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update -y && \
-	apt-get install -y \
+	apt-get --no-install-recommends install -y \
         nano \
         ntp \
 	samba \
+	samba-dsdb-modules \
+        samba-client \
+        samba-vfs-modules \
         krb5-user \
         libpam-krb5 \
         winbind \
         libnss-winbind \
-        libpam-winbind
+        libpam-winbind \
+	acl \
+	attr \
+	
         
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
