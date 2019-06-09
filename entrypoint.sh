@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
-./nmbd
-./winbindd
-./smbd --foreground --log-stdout
+/etc/init.d/nmbd restart
+/etc/init.d/winbind restart
+/etc/init.d/smbd restart
+
