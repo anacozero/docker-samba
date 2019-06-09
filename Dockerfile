@@ -29,6 +29,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 	
 EXPOSE 445/tcp 139/tcp 137/udp 138/udp
 
+RUN env --unset=DEBIAN_FRONTEND
+
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
