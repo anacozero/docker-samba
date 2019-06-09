@@ -29,9 +29,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 	
 EXPOSE 445/tcp 139/tcp 137/udp 138/udp
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["smbd", "--foreground", "--log-stdout"]
 
-CMD []
+CMD ["/start.sh"]
