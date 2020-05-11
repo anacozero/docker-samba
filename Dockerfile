@@ -36,4 +36,4 @@ RUN chmod +x /start.sh
 
 ENTRYPOINT ["/start.sh"]
 
-CMD ["smbd", "--foreground", "--log-stdout"]
+CMD ["smbd", "-i"]
