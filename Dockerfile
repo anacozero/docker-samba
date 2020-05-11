@@ -36,4 +36,4 @@ RUN chmod +x /start.sh
 
 ENTRYPOINT ["/start.sh"]
 
-CMD ["smbd", "-i"]
+CMD ["tail", "-f", "/var/log/samba/smbd.log"]
